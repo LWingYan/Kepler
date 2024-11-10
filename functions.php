@@ -181,7 +181,7 @@ function isActiveMenu($self, $slug) : string {
 function themeFields($layout)
 {
     if ($_SERVER['SCRIPT_NAME']=="/admin/write-post.php"){
-        $article_type= new Typecho_Widget_Helper_Form_Element_Radio('article_type',array('0' => _t('文章'),'say' => _t('说说'),'photos' => _t('多图/相册'),'book' => _t('书籍'),'aplayer' => _t('音乐')),'0',_t('文章类型'),_t("选择文章类型首页输出"));
+        $article_type= new Typecho_Widget_Helper_Form_Element_Radio('article_type',array('0' => _t('文章'),'say' => _t('说说'),'book' => _t('书籍')),'0',_t('文章类型'),_t("选择文章类型首页输出"));
         $layout->addItem($article_type);
         
         $keywords = new Typecho_Widget_Helper_Form_Element_Text(
@@ -206,16 +206,6 @@ function themeFields($layout)
             其他：如果不填写此项，则默认截取文章片段'
         );
         $layout->addItem($description);
-      
-        $aplayer = new Typecho_Widget_Helper_Form_Element_Text(
-        'aplayer',
-        NULL,
-        NULL,
-        '音乐Id',
-        '介绍：需要播放的音乐Id <br />
-            注意：只能是填写网易云音乐Id'
-        );
-        $layout->addItem($aplayer);
         
         $doubanId = new Typecho_Widget_Helper_Form_Element_Text(
         'doubanId',
